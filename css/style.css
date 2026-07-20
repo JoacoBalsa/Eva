@@ -1,0 +1,54 @@
+body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffe6ea; /* Un tono rosa muy suave */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden; /* Evita scroll por los corazones */
+        }
+        
+        .container {
+            text-align: center;
+            z-index: 10;
+        }
+
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 32px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        button:hover {
+            background-color: #ff2a55;
+            transform: scale(1.05);
+        }
+
+        #mensaje {
+            display: none;
+            font-size: 2.5rem;
+            color: #c9184a;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        /* Animación de los corazones flotantes */
+        .heart {
+            position: absolute;
+            bottom: -10vh;
+            color: #ff4d6d;
+            animation: floatUp ease-in infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+        }

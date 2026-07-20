@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tengo algo que decirte...</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <button id="btnMagico">Tengo algo que decirte, tocá acá</button>
+        <div id="mensaje">
+            <p>¡Estás muy bonita hoy! ❤️</p>
+            <p>Tengo muchas ganas de verte</p>
+        </div>
+        
+    </div>
+
+    <script>
+        const btn = document.getElementById('btnMagico');
+        const mensaje = document.getElementById('mensaje');
+
+        btn.addEventListener('click', () => {
+            btn.style.display = 'none';
+            mensaje.style.display = 'block';
+
+            setTimeout(() => {
+                mensaje.style.opacity = 1;
+            }, 50);
+            for (let i = 0; i < 20; i++) {
+                setTimeout(crearCorazon, i * 150);
+            }
+        });
+
+        function crearCorazon() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            heart.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    </script>
+</body>
+</html>
